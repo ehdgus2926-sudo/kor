@@ -1,0 +1,3487 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>우리 가족 이야기 | 김동현 가족의 따뜻한 온라인 우리집</title>
+  <meta name="description" content="김동현 가족의 역사, 사랑, 여행, 등산, 사진과 소중한 추억을 기록하는 온라인 가족 앨범이자 디지털 우리집입니다." />
+  
+  <!-- 웹 폰트 (Pretendard & Gowun Batang / Noto Serif) -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&family=Noto+Serif+KR:wght@400;600;700;900&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ==========================================================================
+       [CSS 기본 설정 & 테마 변수]
+       김동현 가족 홈페이지의 따뜻하고 감성적인 색상과 디자인 시스템입니다.
+       ========================================================================== */
+    :root {
+      --primary: #E07A5F;        /* 따뜻한 테라코타 코랄 */
+      --primary-dark: #C85A3D;
+      --primary-light: #F4A261;
+      --accent-green: #2A9D8F;   /* 자연/산행을 상징하는 세이지 그린 */
+      --accent-green-dark: #1F7268;
+      --accent-amber: #E9C46A;   /* 따스한 햇살 옐로우 */
+      --accent-blue: #457B9D;    /* 맑은 하늘/바다 블루 */
+      --accent-rose: #E76F51;    /* 로맨틱 로즈 */
+      
+      --bg-cream: #FDFBF7;      /* 부드러운 크림빛 배경 */
+      --bg-sand: #F7F3E9;       /* 은은한 샌드 톤 배경 */
+      --bg-card: rgba(255, 255, 255, 0.92);
+      --bg-glass: rgba(255, 255, 255, 0.82);
+      
+      --text-main: #2D3142;      /* 진한 차콜 텍스트 */
+      --text-muted: #6B7082;     /* 부드러운 회색 설명글 */
+      --text-light: #9EA3B0;
+      
+      --border-color: rgba(224, 122, 95, 0.18);
+      --shadow-sm: 0 4px 12px rgba(45, 49, 66, 0.05);
+      --shadow-md: 0 10px 25px rgba(45, 49, 66, 0.08);
+      --shadow-lg: 0 18px 45px rgba(45, 49, 66, 0.12);
+      --shadow-hover: 0 22px 50px rgba(224, 122, 95, 0.18);
+      
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 32px;
+      --radius-full: 9999px;
+      
+      --font-body: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+      --font-serif: 'Gowun Batang', 'Noto Serif KR', serif;
+      --font-accent: 'Gowun Dodum', cursive, sans-serif;
+      
+      --transition-smooth: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* 다크 모드 (야간 편안한 감상 지원) */
+    body.dark-mode {
+      --bg-cream: #1A1A24;
+      --bg-sand: #14141D;
+      --bg-card: rgba(32, 33, 47, 0.95);
+      --bg-glass: rgba(26, 26, 36, 0.88);
+      --text-main: #EDE8F5;
+      --text-muted: #A5A9B8;
+      --text-light: #737787;
+      --border-color: rgba(244, 162, 97, 0.2);
+      --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.35);
+      --shadow-lg: 0 18px 45px rgba(0, 0, 0, 0.5);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-cream);
+      color: var(--text-main);
+      line-height: 1.7;
+      overflow-x: hidden;
+      transition: background-color 0.4s ease, color 0.4s ease;
+      word-break: keep-all;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    button, input, textarea, select {
+      font-family: inherit;
+    }
+
+    /* 공통 컨테이너 */
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-spacing {
+      padding: 110px 0;
+      position: relative;
+    }
+
+    /* 섹션 공통 헤더 스타일 */
+    .section-header {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 60px auto;
+    }
+
+    .section-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      background: rgba(224, 122, 95, 0.12);
+      color: var(--primary-dark);
+      font-size: 0.95rem;
+      font-weight: 700;
+      border-radius: var(--radius-full);
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+      border: 1px solid rgba(224, 122, 95, 0.25);
+    }
+
+    body.dark-mode .section-badge {
+      background: rgba(244, 162, 97, 0.15);
+      color: var(--primary-light);
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 18px;
+      line-height: 1.35;
+    }
+
+    .section-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      font-weight: 400;
+      line-height: 1.8;
+    }
+
+    /* ==========================================================================
+       [상단 고정 네비게이션 바]
+       ========================================================================== */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: var(--bg-glass);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-color);
+      transition: var(--transition-smooth);
+    }
+
+    .header.scrolled {
+      box-shadow: var(--shadow-md);
+      background: rgba(255, 255, 255, 0.96);
+    }
+
+    body.dark-mode .header.scrolled {
+      background: rgba(20, 20, 29, 0.96);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      letter-spacing: -0.5px;
+    }
+
+    body.dark-mode .logo {
+      color: var(--primary-light);
+    }
+
+    .logo .logo-icon {
+      font-size: 1.6rem;
+      animation: floatIcon 3s ease-in-out infinite;
+    }
+
+    .logo .family-tag {
+      font-size: 0.8rem;
+      font-family: var(--font-body);
+      background: var(--primary);
+      color: #fff;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-main);
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      transition: var(--transition-smooth);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--primary);
+      background: rgba(224, 122, 95, 0.08);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .icon-btn {
+      background: rgba(224, 122, 95, 0.1);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: var(--transition-smooth);
+    }
+
+    .icon-btn:hover {
+      background: var(--primary);
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.7rem;
+      color: var(--text-main);
+      cursor: pointer;
+    }
+
+    /* 모바일 네비게이션 드로어 */
+    .mobile-drawer {
+      position: fixed;
+      top: 76px;
+      left: 0;
+      width: 100%;
+      background: var(--bg-card);
+      backdrop-filter: blur(20px);
+      padding: 24px;
+      box-shadow: var(--shadow-lg);
+      border-bottom: 2px solid var(--primary);
+      transform: translateY(-120%);
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--transition-smooth);
+      z-index: 999;
+    }
+
+    .mobile-drawer.open {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .mobile-nav-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .mobile-nav-item a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 14px;
+      background: var(--bg-sand);
+      border-radius: var(--radius-sm);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-main);
+      transition: var(--transition-smooth);
+    }
+
+    .mobile-nav-item a:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    /* ==========================================================================
+       [1. 메인 히어로 화면 (HERO SECTION)]
+       ========================================================================== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(253, 251, 247, 0.75) 0%, rgba(247, 243, 233, 0.85) 100%),
+                  url('https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+    }
+
+    body.dark-mode .hero {
+      background: linear-gradient(135deg, rgba(26, 26, 36, 0.85) 0%, rgba(20, 20, 29, 0.92) 100%),
+                  url('https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+    }
+
+    /* 캔버스 파티클 레이어 */
+    #heroCanvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 880px;
+      margin: 0 auto;
+      animation: fadeInHero 1.2s ease-out;
+    }
+
+    .hero-badge-container {
+      margin-bottom: 24px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 24px;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      border-radius: var(--radius-full);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-color);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    body.dark-mode .hero-badge {
+      background: rgba(35, 36, 50, 0.9);
+      color: var(--primary-light);
+    }
+
+    .hero-title-main {
+      font-family: var(--font-serif);
+      font-size: 4rem;
+      font-weight: 900;
+      line-height: 1.25;
+      color: var(--text-main);
+      margin-bottom: 24px;
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .hero-title-main .highlight {
+      color: var(--primary);
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero-title-main .highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 8px;
+      left: 0;
+      width: 100%;
+      height: 12px;
+      background: rgba(233, 196, 106, 0.4);
+      z-index: -1;
+      border-radius: 4px;
+    }
+
+    .hero-poem {
+      font-family: var(--font-accent);
+      font-size: 1.5rem;
+      color: var(--text-muted);
+      line-height: 2;
+      margin-bottom: 36px;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(8px);
+      padding: 24px 32px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      display: inline-block;
+    }
+
+    body.dark-mode .hero-poem {
+      background: rgba(35, 36, 50, 0.7);
+      color: var(--text-main);
+    }
+
+    .hero-poem .poem-line {
+      display: block;
+    }
+
+    .hero-poem .poem-emphasis {
+      color: var(--primary-dark);
+      font-weight: 700;
+      font-size: 1.65rem;
+      margin-top: 6px;
+    }
+
+    body.dark-mode .hero-poem .poem-emphasis {
+      color: var(--primary-light);
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 36px;
+      border-radius: var(--radius-full);
+      font-size: 1.08rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      border: none;
+      box-shadow: var(--shadow-md);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+      background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+    }
+
+    body.dark-mode .btn-secondary {
+      background: rgba(40, 42, 58, 0.92);
+      color: #fff;
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-cream);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary);
+    }
+
+    .hero-scroll-indicator {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-weight: 600;
+      animation: bounceIndicator 2.2s infinite;
+    }
+
+    /* ==========================================================================
+       [3. 👨‍👩‍👧‍👦 우리 가족 소개 섹션]
+       ========================================================================== */
+    .family-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 32px;
+      margin-top: 20px;
+    }
+
+    .family-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 32px 26px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-color);
+      transition: var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .family-card:hover {
+      transform: translateY(-12px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--primary-light);
+    }
+
+    .family-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 7px;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--accent-amber) 100%);
+    }
+
+    .family-avatar-wrapper {
+      position: relative;
+      width: 170px;
+      height: 170px;
+      margin-bottom: 22px;
+      border-radius: 50%;
+      padding: 6px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent-amber) 100%);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .family-avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #fff;
+      transition: transform 0.6s ease;
+    }
+
+    body.dark-mode .family-avatar {
+      border-color: #2D3142;
+    }
+
+    .family-card:hover .family-avatar {
+      transform: scale(1.08);
+    }
+
+    .family-role-badge {
+      position: absolute;
+      bottom: -6px;
+      right: 10px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      border: 2px solid #fff;
+    }
+
+    .family-name {
+      font-family: var(--font-serif);
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+
+    .family-role-desc {
+      font-size: 0.92rem;
+      color: var(--primary-dark);
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    body.dark-mode .family-role-desc {
+      color: var(--primary-light);
+    }
+
+    .family-info-list {
+      width: 100%;
+      background: var(--bg-sand);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      margin-bottom: 18px;
+      text-align: left;
+      font-size: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .family-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      color: var(--text-main);
+    }
+
+    .family-info-item .label {
+      font-weight: 700;
+      color: var(--text-muted);
+      min-width: 78px;
+    }
+
+    .family-motto {
+      font-family: var(--font-accent);
+      font-size: 0.98rem;
+      color: var(--primary-dark);
+      background: rgba(224, 122, 95, 0.08);
+      border-left: 3px solid var(--primary);
+      padding: 10px 14px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      width: 100%;
+      margin-top: auto;
+      font-style: italic;
+    }
+
+    body.dark-mode .family-motto {
+      color: var(--primary-light);
+    }
+
+    /* ==========================================================================
+       [4. 🏡 우리집 이야기 섹션]
+       ========================================================================== */
+    .home-story-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      margin-top: 30px;
+    }
+
+    .story-text-card {
+      background: var(--bg-card);
+      padding: 44px 38px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-color);
+      position: relative;
+    }
+
+    .quote-icon {
+      font-size: 2.8rem;
+      color: var(--primary-light);
+      opacity: 0.4;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .story-blockquote {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      line-height: 2;
+      color: var(--text-main);
+      margin-bottom: 24px;
+    }
+
+    .story-blockquote p + p {
+      margin-top: 18px;
+    }
+
+    .story-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px dashed var(--border-color);
+    }
+
+    .story-stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: var(--font-serif);
+      font-size: 1.9rem;
+      font-weight: 900;
+      color: var(--primary);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .story-gallery-mosaic {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .mosaic-item {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+      height: 220px;
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+    }
+
+    .mosaic-item:first-child {
+      grid-row: span 2;
+      height: 458px;
+    }
+
+    .mosaic-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .mosaic-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .mosaic-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(0deg, rgba(0,0,0,0.75) 0%, transparent 100%);
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       [5. 📸 우리 가족 추억 앨범 & 라이트박스]
+       ========================================================================== */
+    .album-filters {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .filter-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 10px 22px;
+      border-radius: var(--radius-full);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .album-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 24px;
+    }
+
+    .album-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+      transition: var(--transition-smooth);
+      cursor: pointer;
+      position: relative;
+    }
+
+    .album-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .album-thumb-wrapper {
+      position: relative;
+      height: 240px;
+      overflow: hidden;
+    }
+
+    .album-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .album-card:hover .album-thumb {
+      transform: scale(1.1);
+    }
+
+    .album-category-tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(4px);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+    }
+
+    .album-info {
+      padding: 18px 20px;
+    }
+
+    .album-date {
+      font-size: 0.82rem;
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .album-title {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+
+    .album-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       [6. 🏔️ 등산 이야기 섹션 (특별 공간)]
+       ========================================================================== */
+    .hiking-section {
+      background: linear-gradient(180deg, var(--bg-cream) 0%, rgba(42, 157, 143, 0.06) 50%, var(--bg-cream) 100%);
+      position: relative;
+    }
+
+    .hiking-hero-banner {
+      background: linear-gradient(135deg, rgba(42, 157, 143, 0.92) 0%, rgba(31, 114, 104, 0.95) 100%),
+                  url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1800&q=80') center/cover;
+      border-radius: var(--radius-lg);
+      padding: 60px 40px;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 50px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hiking-hero-banner::after {
+      content: '🏔️';
+      position: absolute;
+      right: 30px;
+      bottom: -20px;
+      font-size: 10rem;
+      opacity: 0.15;
+      pointer-events: none;
+    }
+
+    .hiking-banner-title {
+      font-family: var(--font-serif);
+      font-size: 2.3rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .hiking-banner-quote {
+      font-family: var(--font-accent);
+      font-size: 1.3rem;
+      opacity: 0.95;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    .hiking-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 32px;
+    }
+
+    .hiking-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-color);
+      transition: var(--transition-smooth);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hiking-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--accent-green);
+    }
+
+    .hiking-img-box {
+      height: 250px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hiking-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .hiking-card:hover .hiking-img-box img {
+      transform: scale(1.08);
+    }
+
+    .hiking-badge-alt {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: rgba(42, 157, 143, 0.9);
+      backdrop-filter: blur(4px);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+    }
+
+    .hiking-body {
+      padding: 28px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hiking-name {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hiking-date {
+      color: var(--accent-green);
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .hiking-meta-table {
+      background: var(--bg-sand);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      margin-bottom: 18px;
+      font-size: 0.88rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .hiking-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-main);
+    }
+
+    .hiking-meta-item strong {
+      color: var(--text-muted);
+    }
+
+    .hiking-review {
+      font-family: var(--font-accent);
+      font-size: 0.98rem;
+      color: var(--text-main);
+      background: rgba(42, 157, 143, 0.08);
+      border-left: 3px solid var(--accent-green);
+      padding: 12px 16px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      line-height: 1.7;
+      margin-top: auto;
+    }
+
+    /* ==========================================================================
+       [7. ✈️ 우리 가족 여행 이야기 섹션]
+       ========================================================================== */
+    .travel-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .travel-tab-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 12px 24px;
+      border-radius: var(--radius-full);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .travel-tab-btn:hover, .travel-tab-btn.active {
+      background: var(--accent-blue);
+      color: #fff;
+      border-color: var(--accent-blue);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .travel-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 32px;
+    }
+
+    .travel-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-color);
+      transition: var(--transition-smooth);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .travel-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .travel-img-box {
+      height: 260px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .travel-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .travel-card:hover .travel-img-box img {
+      transform: scale(1.08);
+    }
+
+    .travel-tag {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: rgba(69, 123, 157, 0.9);
+      backdrop-filter: blur(4px);
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+    }
+
+    .travel-body {
+      padding: 28px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .travel-title {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 12px;
+    }
+
+    .travel-details-list {
+      background: var(--bg-sand);
+      padding: 14px 16px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 16px;
+      font-size: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .travel-details-list li {
+      list-style: none;
+      display: flex;
+      gap: 8px;
+    }
+
+    .travel-story-quote {
+      font-family: var(--font-accent);
+      font-size: 0.98rem;
+      color: var(--text-main);
+      line-height: 1.7;
+      background: rgba(69, 123, 157, 0.08);
+      border-left: 3px solid var(--accent-blue);
+      padding: 12px 16px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin-top: auto;
+    }
+
+    /* ==========================================================================
+       [8. 🎂 가족 행사 섹션]
+       ========================================================================== */
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+    }
+
+    .event-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 30px 26px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-color);
+      transition: var(--transition-smooth);
+      position: relative;
+      cursor: pointer;
+    }
+
+    .event-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--accent-amber);
+    }
+
+    .event-icon-box {
+      width: 60px;
+      height: 60px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, var(--accent-amber) 0%, var(--primary-light) 100%);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .event-title {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .event-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .event-badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      background: rgba(224, 122, 95, 0.1);
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+    }
+
+    /* ==========================================================================
+       [9. 📅 우리 가족 일정 & D-DAY 섹션]
+       ========================================================================== */
+    .schedule-container-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 36px;
+      align-items: start;
+    }
+
+    .schedule-card-box {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-color);
+    }
+
+    .schedule-box-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 26px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .schedule-box-title {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .schedule-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .schedule-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 16px 20px;
+      background: var(--bg-sand);
+      border-radius: var(--radius-md);
+      transition: var(--transition-smooth);
+      border-left: 4px solid var(--primary);
+    }
+
+    .schedule-item:hover {
+      transform: translateX(6px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .schedule-date-badge {
+      min-width: 75px;
+      text-align: center;
+      background: #fff;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-sm);
+    }
+
+    body.dark-mode .schedule-date-badge {
+      background: #2D3142;
+    }
+
+    .schedule-date-badge .month {
+      font-size: 0.78rem;
+      color: var(--primary);
+      font-weight: 700;
+      display: block;
+      text-transform: uppercase;
+    }
+
+    .schedule-date-badge .day {
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--text-main);
+      line-height: 1;
+    }
+
+    .schedule-info {
+      flex: 1;
+    }
+
+    .schedule-event-name {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text-main);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .schedule-event-memo {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    /* D-Day 위젯 */
+    .dday-box {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: #fff;
+      border-radius: var(--radius-lg);
+      padding: 36px 30px;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 24px;
+    }
+
+    .dday-tag {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .dday-title {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .dday-counter {
+      font-size: 3.8rem;
+      font-weight: 900;
+      line-height: 1;
+      font-family: var(--font-serif);
+      text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      margin-bottom: 10px;
+    }
+
+    .dday-desc {
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    /* 새 일정 추가 미니 폼 */
+    .add-schedule-box {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+    }
+
+    .add-schedule-box h4 {
+      font-size: 1.05rem;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .schedule-form-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .schedule-input {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      background: var(--bg-sand);
+      color: var(--text-main);
+      font-size: 0.9rem;
+    }
+
+    .schedule-input:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    /* ==========================================================================
+       [10. 💌 가족에게 한마디 (포스트잇 방명록)]
+       ========================================================================== */
+    .message-board-section {
+      background: linear-gradient(180deg, var(--bg-cream) 0%, rgba(233, 196, 106, 0.08) 50%, var(--bg-cream) 100%);
+    }
+
+    .message-form-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-color);
+      max-width: 680px;
+      margin: 0 auto 48px auto;
+    }
+
+    .message-form-title {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 20px;
+      color: var(--text-main);
+    }
+
+    .postit-colors {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .color-radio {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 3px solid transparent;
+      transition: var(--transition-smooth);
+    }
+
+    .color-radio.active {
+      border-color: var(--text-main);
+      transform: scale(1.15);
+    }
+
+    .color-yellow { background: #FFF3B0; }
+    .color-pink   { background: #FFD6DA; }
+    .color-green  { background: #D8F3DC; }
+    .color-blue   { background: #D7E3FC; }
+    .color-purple { background: #E8D7F1; }
+
+    .message-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 26px;
+    }
+
+    .postit-card {
+      padding: 24px 20px 20px;
+      border-radius: 6px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+      position: relative;
+      transform: rotate(-1deg);
+      transition: var(--transition-smooth);
+      min-height: 190px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #2D3142;
+    }
+
+    .postit-card:nth-child(even) {
+      transform: rotate(1.5deg);
+    }
+
+    .postit-card:nth-child(3n) {
+      transform: rotate(-2deg);
+    }
+
+    .postit-card:hover {
+      transform: scale(1.05) rotate(0deg);
+      box-shadow: 0 18px 30px rgba(0,0,0,0.15);
+      z-index: 10;
+    }
+
+    /* 포스트잇 상단 테이프/핀 그래픽 */
+    .postit-card::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70px;
+      height: 20px;
+      background: rgba(255, 255, 255, 0.65);
+      border: 1px solid rgba(0,0,0,0.05);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .postit-text {
+      font-family: var(--font-accent);
+      font-size: 1.12rem;
+      line-height: 1.7;
+      margin-top: 10px;
+      word-break: break-all;
+    }
+
+    .postit-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 18px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      border-top: 1px dashed rgba(0, 0, 0, 0.15);
+      padding-top: 10px;
+    }
+
+    .postit-author {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .postit-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .postit-like-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+      color: #E76F51;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      transition: transform 0.2s ease;
+    }
+
+    .postit-like-btn:hover {
+      transform: scale(1.25);
+    }
+
+    /* ==========================================================================
+       [11. 🎞️ 우리 가족 추억 연표 타임라인]
+       ========================================================================== */
+    .timeline-wrapper {
+      position: relative;
+      max-width: 960px;
+      margin: 40px auto 0 auto;
+      padding: 20px 0;
+    }
+
+    .timeline-wrapper::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 4px;
+      background: linear-gradient(180deg, var(--primary-light) 0%, var(--primary) 50%, var(--accent-amber) 100%);
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 50px;
+      width: 50%;
+      padding: 0 36px;
+    }
+
+    .timeline-item:nth-child(odd) {
+      left: 0;
+      text-align: right;
+    }
+
+    .timeline-item:nth-child(even) {
+      left: 50%;
+      text-align: left;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      top: 18px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #fff;
+      border: 5px solid var(--primary);
+      box-shadow: 0 0 0 4px rgba(224, 122, 95, 0.2);
+      z-index: 2;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-dot {
+      right: -11px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-dot {
+      left: -11px;
+    }
+
+    .timeline-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-md);
+      padding: 26px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-color);
+      transition: var(--transition-smooth);
+    }
+
+    .timeline-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .timeline-year {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--primary);
+      margin-bottom: 6px;
+      display: inline-block;
+    }
+
+    .timeline-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 10px;
+    }
+
+    .timeline-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    .timeline-img {
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      height: 160px;
+      margin-top: 12px;
+    }
+
+    .timeline-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ==========================================================================
+       [12. 홈페이지 하단 푸터 (FOOTER)]
+       ========================================================================== */
+    .footer {
+      background: linear-gradient(135deg, #2D3142 0%, #1D1E2C 100%);
+      color: #EDE8F5;
+      padding: 90px 0 40px;
+      text-align: center;
+      position: relative;
+    }
+
+    .footer-quote-box {
+      max-width: 820px;
+      margin: 0 auto 50px auto;
+      padding-bottom: 50px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .footer-main-quote {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.5;
+      margin-bottom: 18px;
+    }
+
+    .footer-sub-quote {
+      font-family: var(--font-accent);
+      font-size: 1.35rem;
+      color: var(--primary-light);
+      font-weight: 600;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+      font-size: 0.95rem;
+    }
+
+    .footer-links a {
+      color: #A5A9B8;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary-light);
+    }
+
+    .footer-copyright {
+      font-size: 0.88rem;
+      color: #737787;
+    }
+
+    /* ==========================================================================
+       [라이트박스 모달 (LIGHTBOX MODAL)]
+       ========================================================================== */
+    .lightbox-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(10, 10, 15, 0.94);
+      backdrop-filter: blur(16px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+
+    .lightbox-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox-content-box {
+      max-width: 1000px;
+      width: 100%;
+      background: rgba(30, 30, 42, 0.9);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      animation: zoomIn 0.3s ease;
+    }
+
+    .lightbox-img-wrapper {
+      max-height: 65vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+      overflow: hidden;
+    }
+
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 65vh;
+      object-fit: contain;
+    }
+
+    .lightbox-caption-bar {
+      padding: 24px 30px;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #181924;
+    }
+
+    .lightbox-title {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .lightbox-desc {
+      font-size: 0.92rem;
+      color: #A5A9B8;
+    }
+
+    .lightbox-close-btn {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.2);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      font-size: 1.4rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-smooth);
+      z-index: 10;
+    }
+
+    .lightbox-close-btn:hover {
+      background: var(--primary);
+      transform: rotate(90deg);
+    }
+
+    .lightbox-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-smooth);
+      z-index: 5;
+    }
+
+    .lightbox-nav-btn:hover {
+      background: var(--primary);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .lightbox-prev { left: 20px; }
+    .lightbox-next { right: 20px; }
+
+    /* ==========================================================================
+       [플로팅 도구들 (맨위로 가기 & BGM 토글)]
+       ========================================================================== */
+    .floating-tools {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 990;
+    }
+
+    .floating-btn {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.25rem;
+      transition: var(--transition-smooth);
+    }
+
+    .floating-btn:hover {
+      background: var(--primary);
+      color: #fff;
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    /* ==========================================================================
+       [애니메이션 키프레임 (ANIMATIONS)]
+       ========================================================================== */
+    @keyframes fadeInHero {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes bounceIndicator {
+      0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+      40% { transform: translate(-50%, -12px); }
+      60% { transform: translate(-50%, -6px); }
+    }
+
+    @keyframes floatIcon {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-5px) rotate(4deg); }
+    }
+
+    @keyframes zoomIn {
+      from { opacity: 0; transform: scale(0.92); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* 스크롤 시 페이드인 클래스 */
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ==========================================================================
+       [미디어 쿼리 - 반응형 최적화]
+       스마트폰, 태블릿, PC 완벽 대응
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .nav-links { display: none; }
+      .mobile-menu-btn { display: block; }
+      .home-story-wrapper { grid-template-columns: 1fr; }
+      .schedule-container-grid { grid-template-columns: 1fr; }
+      .hero-title-main { font-size: 3.2rem; }
+    }
+
+    @media (max-width: 768px) {
+      .section-spacing { padding: 75px 0; }
+      .section-title { font-size: 2rem; }
+      .hero-title-main { font-size: 2.4rem; }
+      .hero-poem { font-size: 1.15rem; padding: 18px 20px; }
+      .hero-poem .poem-emphasis { font-size: 1.3rem; }
+      
+      .timeline-wrapper::before { left: 24px; }
+      .timeline-item { width: 100%; padding-left: 60px; padding-right: 0; }
+      .timeline-item:nth-child(odd) { text-align: left; left: 0; }
+      .timeline-item:nth-child(even) { left: 0; text-align: left; }
+      .timeline-item:nth-child(odd) .timeline-dot,
+      .timeline-item:nth-child(even) .timeline-dot { left: 13px; right: auto; }
+      
+      .mosaic-item:first-child { height: 260px; grid-row: auto; }
+      .story-stats-grid { grid-template-columns: 1fr 1fr; }
+      .hiking-hero-banner { padding: 40px 20px; }
+      .hiking-banner-title { font-size: 1.8rem; }
+      .footer-main-quote { font-size: 1.5rem; }
+      .lightbox-nav-btn { width: 40px; height: 40px; font-size: 1.2rem; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title-main { font-size: 2rem; }
+      .btn { width: 100%; justify-content: center; }
+      .mobile-nav-list { grid-template-columns: 1fr; }
+      .story-stats-grid { grid-template-columns: 1fr; }
+    }
+
+    /* 프린트 모드 (가족 앨범 책 출력 대응) */
+    @media print {
+      .header, .floating-tools, .hero-actions, .mobile-drawer, .add-schedule-box, .message-form-card {
+        display: none !important;
+      }
+      body { background: #fff !important; color: #000 !important; }
+      .section-spacing { padding: 30px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       [상단 고정 네비게이션 헤더]
+       ========================================================================== */
+  <header class="header" id="mainHeader">
+    <div class="nav-container">
+      <a href="#home" class="logo">
+        <span class="logo-icon">🏡</span>
+        <span>우리 가족 이야기</span>
+        <span class="family-tag">김동현 님 가족</span>
+      </a>
+
+      <!-- 데스크톱 네비게이션 링크 -->
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link">🏠 HOME</a></li>
+        <li><a href="#family" class="nav-link">👨‍👩‍👧‍👦 우리 가족</a></li>
+        <li><a href="#story" class="nav-link">🏡 우리집 이야기</a></li>
+        <li><a href="#album" class="nav-link">📸 추억 앨범</a></li>
+        <li><a href="#hiking" class="nav-link">🏔️ 등산 이야기</a></li>
+        <li><a href="#travel" class="nav-link">✈️ 여행 이야기</a></li>
+        <li><a href="#events" class="nav-link">🎂 가족 행사</a></li>
+        <li><a href="#schedule" class="nav-link">📅 가족 일정</a></li>
+        <li><a href="#messages" class="nav-link">💌 한마디</a></li>
+      </ul>
+
+      <!-- 우측 기능 버튼 (다크모드 & 모바일 햄버거 메뉴) -->
+      <div class="nav-actions">
+        <button type="button" class="icon-btn" id="themeToggleBtn" title="화면 테마 변경" aria-label="테마 변경">🌙</button>
+        <button type="button" class="icon-btn" id="bgmToggleBtn" title="감성 배경음악 켜기/끄기" aria-label="음악 재생">🎵</button>
+        <button type="button" class="mobile-menu-btn" id="mobileMenuToggle" aria-label="메뉴 열기">☰</button>
+      </div>
+    </div>
+
+    <!-- 모바일 드로어 메뉴 -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <ul class="mobile-nav-list">
+        <li class="mobile-nav-item"><a href="#home" class="m-link">🏠 HOME</a></li>
+        <li class="mobile-nav-item"><a href="#family" class="m-link">👨‍👩‍👧‍👦 우리 가족</a></li>
+        <li class="mobile-nav-item"><a href="#story" class="m-link">🏡 우리집 이야기</a></li>
+        <li class="mobile-nav-item"><a href="#album" class="m-link">📸 추억 앨범</a></li>
+        <li class="mobile-nav-item"><a href="#hiking" class="m-link">🏔️ 등산 이야기</a></li>
+        <li class="mobile-nav-item"><a href="#travel" class="m-link">✈️ 여행 이야기</a></li>
+        <li class="mobile-nav-item"><a href="#events" class="m-link">🎂 가족 행사</a></li>
+        <li class="mobile-nav-item"><a href="#schedule" class="m-link">📅 가족 일정</a></li>
+        <li class="mobile-nav-item"><a href="#messages" class="m-link">💌 가족에게 한마디</a></li>
+        <li class="mobile-nav-item"><a href="#timeline" class="m-link">🎞️ 추억 연표</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================================================
+         [1. 메인 히어로 화면]
+         함께해서 행복한 우리 가족 & 부드러운 캔버스 애니메이션
+         ========================================================================== -->
+    <section class="hero" id="home">
+      <canvas id="heroCanvas"></canvas>
+      <div class="hero-content">
+        <div class="hero-badge-container">
+          <span class="hero-badge">
+            <span>✨</span>
+            <span>함께해서 행복한 우리 가족</span>
+          </span>
+        </div>
+
+        <h1 class="hero-title-main">
+          🏡 <span class="highlight">우리 가족</span> 이야기
+        </h1>
+
+        <div class="hero-poem">
+          <span class="poem-line">함께 웃고,</span>
+          <span class="poem-line">함께 여행하고,</span>
+          <span class="poem-line">함께 추억을 만들어가는</span>
+          <span class="poem-line poem-emphasis">행복한 우리 가족</span>
+          <span class="poem-line" style="font-size: 0.95rem; margin-top: 10px; color: var(--text-muted);">
+            “소중한 순간들이 모여 우리의 이야기가 됩니다.”
+          </span>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#family" class="btn btn-primary">
+            <span>👨‍👩‍👧‍👦 우리 가족 만나보기</span>
+            <span>→</span>
+          </a>
+          <a href="#album" class="btn btn-secondary">
+            <span>📸 추억 앨범 감상하기</span>
+          </a>
+        </div>
+      </div>
+
+      <a href="#family" class="hero-scroll-indicator" aria-label="아래로 스크롤">
+        <span>이야기 시작하기</span>
+        <span>▼</span>
+      </a>
+    </section>
+
+    <!-- ==========================================================================
+         [3. 👨‍👩‍👧‍👦 우리 가족 소개 섹션]
+         각 가족 구성원의 사진, 역할, 취미, 음식, 한마디
+         ========================================================================== -->
+    <section class="section-spacing container reveal" id="family">
+      <div class="section-header">
+        <span class="section-badge">FAMILY MEMBERS</span>
+        <h2 class="section-title">사랑하는 우리 가족을 소개합니다</h2>
+        <p class="section-subtitle">
+          서로에게 든든한 버팀목이 되어주는 세상에서 가장 소중한 우리 가족 구성원들입니다.
+        </p>
+      </div>
+
+      <div class="family-grid">
+        <!-- 1. 아버지 (김동현 님) -->
+        <div class="family-card">
+          <div class="family-avatar-wrapper">
+            <!-- [가족 사진 교체 위치]: src 속성에 실제 사진 파일 경로를 넣어주세요 -->
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=80" alt="김동현 아버지 사진" class="family-avatar" />
+            <span class="family-role-badge">든든한 가장 👑</span>
+          </div>
+          <h3 class="family-name">김동현</h3>
+          <p class="family-role-desc">아버지 / 산행 대장 & 든든한 버팀목</p>
+
+          <div class="family-info-list">
+            <div class="family-info-item">
+              <span class="label">❤️ 좋아하는 것:</span>
+              <span>주말 가족 등산, 캠핑, 자연 풍경 사진 촬영</span>
+            </div>
+            <div class="family-info-item">
+              <span class="label">🍲 좋아하는 음식:</span>
+              <span>어머니표 된장찌개, 숯불 바베큐, 시원한 칼국수</span>
+            </div>
+          </div>
+
+          <div class="family-motto">
+            “우리 가족과 함께 산을 오르고 웃을 수 있는 이 순간이 내 인생 최고의 행복입니다.”
+          </div>
+        </div>
+
+        <!-- 2. 어머니 -->
+        <div class="family-card">
+          <div class="family-avatar-wrapper">
+            <!-- [가족 사진 교체 위치] -->
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=500&q=80" alt="어머니 사진" class="family-avatar" />
+            <span class="family-role-badge">따뜻한 사랑 🌸</span>
+          </div>
+          <h3 class="family-name">이선영</h3>
+          <p class="family-role-desc">어머니 / 우리집의 따스한 미소 & 총지배인</p>
+
+          <div class="family-info-list">
+            <div class="family-info-item">
+              <span class="label">❤️ 좋아하는 것:</span>
+              <span>정원 가꾸기, 가족을 위한 요리, 음악 감상, 미술관 나들이</span>
+            </div>
+            <div class="family-info-item">
+              <span class="label">🍲 좋아하는 음식:</span>
+              <span>신선한 연어 샐러드, 바질 파스타, 향긋한 원두 커피</span>
+            </div>
+          </div>
+
+          <div class="family-motto">
+            “언제나 우리 가족이 건강하고, 집 안 가득 밝은 웃음꽃이 피어났으면 좋겠어요.”
+          </div>
+        </div>
+
+        <!-- 3. 첫째 자녀 -->
+        <div class="family-card">
+          <div class="family-avatar-wrapper">
+            <!-- [가족 사진 교체 위치] -->
+            <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=500&q=80" alt="첫째 자녀 사진" class="family-avatar" />
+            <span class="family-role-badge">열정 가득 🌟</span>
+          </div>
+          <h3 class="family-name">김민우</h3>
+          <p class="family-role-desc">첫째 아들 / 분위기 메이커 & 여행 플래너</p>
+
+          <div class="family-info-list">
+            <div class="family-info-item">
+              <span class="label">❤️ 좋아하는 것:</span>
+              <span>드라이브, IT 기기 탐구, 가족 여행 코스 짜기, 러닝</span>
+            </div>
+            <div class="family-info-item">
+              <span class="label">🍲 좋아하는 음식:</span>
+              <span>소고기 스테이크, 초밥, 어머니가 해주신 김치볶음밥</span>
+            </div>
+          </div>
+
+          <div class="family-motto">
+            “가족과 함께 새로운 세상을 여행하며 멋진 추억을 계속 쌓아가고 싶습니다!”
+          </div>
+        </div>
+
+        <!-- 4. 둘째 자녀 -->
+        <div class="family-card">
+          <div class="family-avatar-wrapper">
+            <!-- [가족 사진 교체 위치] -->
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=500&q=80" alt="둘째 자녀 사진" class="family-avatar" />
+            <span class="family-role-badge">행복 비타민 💖</span>
+          </div>
+          <h3 class="family-name">김서연</h3>
+          <p class="family-role-desc">둘째 딸 / 사랑스러운 막내 & 베이킹 마스터</p>
+
+          <div class="family-info-list">
+            <div class="family-info-item">
+              <span class="label">❤️ 좋아하는 것:</span>
+              <span>홈베이킹, 다이어리 꾸미기, 고양이 놀아주기, 영화 보기</span>
+            </div>
+            <div class="family-info-item">
+              <span class="label">🍲 좋아하는 음식:</span>
+              <span>딸기 생크림 케이크, 떡볶이, 치즈 피자</span>
+            </div>
+          </div>
+
+          <div class="family-motto">
+            “우리 가족 모두 사랑해요! 언제나 오늘처럼 다정하고 행복했으면 좋겠어요.”
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         [4. 🏡 우리집 이야기 섹션]
+         감성적인 집 이야기 문구와 따뜻한 공간 모자이크
+         ========================================================================== -->
+    <section class="section-spacing container reveal" id="story">
+      <div class="section-header">
+        <span class="section-badge">OUR SWEET HOME</span>
+        <h2 class="section-title">우리집 이야기</h2>
+        <p class="section-subtitle">
+          행복과 온기가 가득 채워지는 우리 가족만의 특별한 보금자리입니다.
+        </p>
+      </div>
+
+      <div class="home-story-wrapper">
+        <!-- 감성적인 문구 카드 -->
+        <div class="story-text-card">
+          <div class="quote-icon">“</div>
+          <blockquote class="story-blockquote">
+            <p>
+              우리 가족에게 집은 단순히 머무는 공간이 아닙니다.<br />
+              함께 웃고, 맛있는 음식을 나누고, 여행을 계획하며, 서로의 하루를 이야기하는 가장 소중한 공간입니다.
+            </p>
+            <p>
+              시간이 흘러도 우리가 함께했던 순간들은 사진과 기억 속에 남아 있습니다.<br />
+              이곳은 우리 가족의 행복한 순간들을 기록하는 또 하나의 우리집입니다.
+            </p>
+          </blockquote>
+
+          <div class="story-stats-grid">
+            <div class="story-stat-item">
+              <span class="stat-number" data-target="12450">0</span>
+              <span class="stat-label">함께 보낸 날 (일)</span>
+            </div>
+            <div class="story-stat-item">
+              <span class="stat-number" data-target="48">0</span>
+              <span class="stat-label">다녀온 여행지 (곳)</span>
+            </div>
+            <div class="story-stat-item">
+              <span class="stat-number" data-target="3500">0</span>
+              <span class="stat-label">기록된 추억 사진 (장)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 집 공간 사진 모자이크 -->
+        <div class="story-gallery-mosaic">
+          <div class="mosaic-item" onclick="openLightbox('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80', '햇살 가득한 거실', '가족들이 모여 도란도란 이야기를 나누는 따뜻한 거실 풍경')">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="거실 사진" />
+            <div class="mosaic-overlay">🌿 햇살 가득한 거실 & 가족의 쉼터</div>
+          </div>
+
+          <div class="mosaic-item" onclick="openLightbox('https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=80', '맛있는 행복이 있는 주방 & 식탁', '어머니의 정성과 가족들의 웃음소리가 번지는 식사 시간')">
+            <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80" alt="식탁 주방 사진" />
+            <div class="mosaic-overlay">🍽️ 맛있는 행복이 있는 주방 & 식탁</div>
+          </div>
+
+          <div class="mosaic-item" onclick="openLightbox('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=1200&q=80', '꽃과 초록빛 정원', '계절마다 아름다운 꽃들이 피어나는 우리집 정원')">
+            <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=800&q=80" alt="정원 사진" />
+            <div class="mosaic-overlay">🌸 꽃과 나무가 있는 정원</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         [5. 📸 우리 가족 추억 앨범 섹션]
+         카테고리 필터링 & 인터랙티브 라이트박스 갤러리
+         ========================================================================== -->
+    <section class="section-spacing container reveal" id="album">
+      <div class="section-header">
+        <span class="section-badge">PHOTO GALLERY</span>
+        <h2 class="section-title">우리 가족 추억 앨범</h2>
+        <p class="section-subtitle">
+          사진을 클릭하시면 큰 화면으로 소중한 순간의 이야기를 감상하실 수 있습니다.
+        </p>
+      </div>
+
+      <!-- 카테고리 필터 버튼 목록 -->
+      <div class="album-filters">
+        <button type="button" class="filter-btn active" data-filter="all">🌟 전체보기</button>
+        <button type="button" class="filter-btn" data-filter="family">📷 가족사진</button>
+        <button type="button" class="filter-btn" data-filter="birthday">🎂 생일과 기념일</button>
+        <button type="button" class="filter-btn" data-filter="gathering">🎉 즐거운 가족 모임</button>
+        <button type="button" class="filter-btn" data-filter="special">🌸 특별했던 하루</button>
+        <button type="button" class="filter-btn" data-filter="holiday">🎄 명절 이야기</button>
+        <button type="button" class="filter-btn" data-filter="happy">❤️ 행복했던 순간들</button>
+      </div>
+
+      <!-- 갤러리 그리드 -->
+      <div class="album-grid" id="albumGrid">
+        <!-- 1. 가족사진 -->
+        <div class="album-card" data-category="family" onclick="openLightbox('https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1400&q=80', '2026년 봄, 우리 가족의 행복한 하루', '따스한 봄 햇살 아래 다 함께 손을 잡고 공원을 산책했던 날')">
+          <div class="album-thumb-wrapper">
+            <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=600&q=80" alt="가족사진" class="album-thumb" />
+            <span class="album-category-tag">📷 가족사진</span>
+          </div>
+          <div class="album-info">
+            <span class="album-date">2026년 봄</span>
+            <h3 class="album-title">우리 가족의 행복한 하루</h3>
+            <p class="album-desc">따스한 햇살 아래 함께 걸으며 웃음 가득했던 날</p>
+          </div>
+        </div>
+
+        <!-- 2. 생일과 기념일 -->
+        <div class="album-card" data-category="birthday" onclick="openLightbox('https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=1400&q=80', '어머니 생신 축하 파티', '직접 구운 수제 케이크와 온 가족의 축하가 함께한 감동의 밤')">
+          <div class="album-thumb-wrapper">
+            <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=600&q=80" alt="생일 파티" class="album-thumb" />
+            <span class="album-category-tag">🎂 생일과 기념일</span>
+          </div>
+          <div class="album-info">
+            <span class="album-date">2026년 5월</span>
+            <h3 class="album-title">어머니 생신 축하 파티</h3>
+            <p class="album-desc">촛불을 끄며 온 가족이 감사의 마음을 전했습니다.</p>
+          </div>
+        </div>
+
+        <!-- 3. 즐거운 가족 모임 -->
+        <div class="album-card" data-category="gathering" onclick="openLightbox('https://images.unsplash.com/photo-1543807535-eceef0bc6599?auto=format&fit=crop&w=1400&q=80', '주말 마당 바베큐 파티', '아버지가 구워주신 맛있는 고기와 밤늦도록 이어진 정겨운 이야기')">
+          <div class="album-thumb-wrapper">
+            <img src="https://images.unsplash.com/photo-1543807535-eceef0bc6599?auto=format&fit=crop&w=600&q=80" alt="가족 모임" class="album-thumb" />
+            <span class="album-category-tag">🎉 즐거운 가족 모임</span>
+          </div>
+          <div class="album-info">
+            <span class="album-date">2026년 여름</span>
+            <h3 class="album-title">주말 마당 바베큐 파티</h3>
+            <p class="album-desc">맛있는 음식과 시원한 바람이 머물던 즐거운 주말 저녁</p>
+          </div>
+        </div>
+
+        <!-- 4. 특별했던 하루 -->
+        <div class="album-card" data-category="special" onclick="openLightbox('https://images.unsplash.com/photo-1508672019048-805c876b67e2?auto=format&fit=crop&w=1400&q=80', '동해안 일출 드라이브 여행', '새벽을 달려 바다 위로 붉게 떠오르는 해를 보며 빈 소원')">
+          <div class="album-thumb-wrapper">
+            <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?auto=format&fit=crop&w=600&q=80" alt="일출 여행" class="album-thumb" />
+            <span class="album-category-tag">🌸 특별했던 하루</span>
+          </div>
+          <div class="album-info">
+            <span class="album-date">2026년 1월 1일</span>
+            <h3 class="album-title">동해안 일출 드라이브</h3>
+            <p class="album-desc">가족 모두의 건강과 행복을 바라는 새해 첫 일출</p>
+          </div>
+        </div>
+
+        <!-- 5. 명절 이야기 -->
+        <div class="album-card" data-category="holiday" onclick="openLightbox('https://images.unsplash.com/photo-1512474932049-78ac69eed10c?auto=format&fit=crop&w=1400&q=80', '온 가족이 모인 설날 명절', '맛있는 떡국을 함께 끓여먹고 덕담을 나누었던 따뜻한 설날 아침')">
+          <div class="album-thumb-wrapper">
+            <img src="https://images.unsplash.com/photo-1512474932049-78ac69eed10c?auto=format&fit=crop&w=600&q=80" alt="명절 풍경" class="album-thumb" />
+            <span class="album-category-tag">🎄 명절 이야기</span>
+          </div>
+          <div class="album-info">
+            <span class="album-date">2026년 설날</span>
+            <h3 class="album-title">온 가족이 모인 명절 아침</h3>
+            <p class="album-desc">정성 가득한 명절 음식과 웃음꽃이 끊이지 않던 날</p>
+          </div>
+        </div>
+
+        <!-- 6. 행복했던 순간들 -->
+        <div class="album-card" data-category="happy" onclick="openLightbox('https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=1400&q=80', '숲속 오솔길 피크닉', '새소리를 들으며 돗자리를 펴고 도시락을 나눠먹던 여유로운 오후')">
+          <div class="album-thumb-wrapper">
+            <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=600&q=80" alt="피크닉" class="album-thumb" />
+            <span class="album-category-tag">❤️ 행복했던 순간들</span>
+          </div>
+          <div class="album-info">
+            <span class="album-date">2026년 초여름</span>
+            <h3 class="album-title">숲속 오솔길 힐링 피크닉</h3>
+            <p class="album-desc">시원한 나무 그늘 아래서 함께 나눈 다정한 대화</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         [6. 🏔️ 등산 이야기 섹션 (김동현 가족 특별 공간)]
+         웅장한 산행 기록 카드와 자연의 감동
+         ========================================================================== -->
+    <section class="section-spacing hiking-section reveal" id="hiking">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge" style="background: rgba(42, 157, 143, 0.12); color: var(--accent-green-dark); border-color: rgba(42, 157, 143, 0.3);">HIKING & NATURE</span>
+          <h2 class="section-title">우리의 산행 이야기</h2>
+          <p class="section-subtitle">
+            발걸음을 맞추며 정상에 오를 때마다 우리 가족의 사랑도 한 뼘 더 깊어집니다.
+          </p>
+        </div>
+
+        <!-- 등산 대표 배너 -->
+        <div class="hiking-hero-banner">
+          <h3 class="hiking-banner-title">⛰️ 자연과 함께 숨 쉬는 시간</h3>
+          <p class="hiking-banner-quote">
+            “산을 오르는 시간은 힘들지만, 정상에서 함께 바라보는 풍경은 언제나 새로운 행복을 선물합니다.”
+          </p>
+        </div>
+
+        <!-- 산행 기록 카드 그리드 -->
+        <div class="hiking-grid">
+          <!-- 1. 계룡산 산행 -->
+          <div class="hiking-card">
+            <div class="hiking-img-box">
+              <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="계룡산 풍경" />
+              <span class="hiking-badge-alt">해발 845m 🚩</span>
+            </div>
+            <div class="hiking-body">
+              <h4 class="hiking-name">⛰️ 계룡산 관음봉</h4>
+              <span class="hiking-date">📅 2026년 4월 18일 산행</span>
+
+              <div class="hiking-meta-table">
+                <div class="hiking-meta-item"><strong>📍 장소:</strong> 충남 공주시</div>
+                <div class="hiking-meta-item"><strong>⏱️ 시간:</strong> 4시간 30분</div>
+                <div class="hiking-meta-item"><strong>👥 동행:</strong> 온 가족 함께</div>
+                <div class="hiking-meta-item"><strong>👣 난이도:</strong> 중급 (자연성릉)</div>
+              </div>
+
+              <div class="hiking-review">
+                📝 <strong>산행 후기:</strong><br />
+                “맑은 봄 하늘 아래 가족과 함께 걸었던 아름다운 하루. 바위 능선이 조금 아찔했지만 서로 손을 잡아주고 격려하며 정상까지 올랐습니다. 정상에서 마신 보온병 커피와 과일은 꿀맛이었습니다!”
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. 북한산 산행 -->
+          <div class="hiking-card">
+            <div class="hiking-img-box">
+              <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80" alt="북한산 백운대" />
+              <span class="hiking-badge-alt">해발 836m 🚩</span>
+            </div>
+            <div class="hiking-body">
+              <h4 class="hiking-name">⛰️ 북한산 백운대</h4>
+              <span class="hiking-date">📅 2026년 1월 10일 새해 산행</span>
+
+              <div class="hiking-meta-table">
+                <div class="hiking-meta-item"><strong>📍 장소:</strong> 서울 북한산 국립공원</div>
+                <div class="hiking-meta-item"><strong>⏱️ 시간:</strong> 4시간 10분</div>
+                <div class="hiking-meta-item"><strong>👥 동행:</strong> 김동현, 김민우</div>
+                <div class="hiking-meta-item"><strong>👣 난이도:</strong> 상급 (암릉 구간)</div>
+              </div>
+
+              <div class="hiking-review">
+                📝 <strong>산행 후기:</strong><br />
+                “새해 첫 각오를 다지며 아들과 함께 올랐던 백운대. 정상 태극기 앞에서 시원한 서울 시내 전경을 내려다보며 서로의 올 한 해 도전을 힘차게 응원했습니다.”
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. 설악산 대청봉 -->
+          <div class="hiking-card">
+            <div class="hiking-img-box">
+              <img src="https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&w=800&q=80" alt="설악산 풍경" />
+              <span class="hiking-badge-alt">해발 1,708m 🚩</span>
+            </div>
+            <div class="hiking-body">
+              <h4 class="hiking-name">⛰️ 설악산 주전골 & 오색약수</h4>
+              <span class="hiking-date">📅 2025년 10월 단풍 산행</span>
+
+              <div class="hiking-meta-table">
+                <div class="hiking-meta-item"><strong>📍 장소:</strong> 강원 양양군</div>
+                <div class="hiking-meta-item"><strong>⏱️ 시간:</strong> 3시간 20분</div>
+                <div class="hiking-meta-item"><strong>👥 동행:</strong> 온 가족 함께</div>
+                <div class="hiking-meta-item"><strong>👣 난이도:</strong> 초급 (힐링 트레킹)</div>
+              </div>
+
+              <div class="hiking-review">
+                📝 <strong>산행 후기:</strong><br />
+                “붉고 노란 단풍이 절정을 이룬 계곡 길을 걸었습니다. 시원한 계곡 물소리와 기암괴석이 어우러져 그림 같았던 하루. 산 아래에서 먹은 산채비빔밥도 잊을 수 없습니다.”
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         [7. ✈️ 우리 가족 여행 이야기 섹션]
+         국내외 아름다운 여행지 카드
+         ========================================================================== -->
+    <section class="section-spacing container reveal" id="travel">
+      <div class="section-header">
+        <span class="section-badge" style="background: rgba(69, 123, 157, 0.12); color: var(--accent-blue); border-color: rgba(69, 123, 157, 0.3);">FAMILY TRAVELS</span>
+        <h2 class="section-title">우리 가족 여행 이야기</h2>
+        <p class="section-subtitle">
+          함께 떠나 더 넓은 세상을 보고, 맛있는 음식을 먹으며 써 내려간 여행 일기입니다.
+        </p>
+      </div>
+
+      <!-- 여행 테마 탭 -->
+      <div class="travel-tabs">
+        <button type="button" class="travel-tab-btn active" data-travel="all">🌍 전체 여행</button>
+        <button type="button" class="travel-tab-btn" data-travel="domestic">🚗 국내 여행</button>
+        <button type="button" class="travel-tab-btn" data-travel="nature">🏔️ 산과 자연 여행</button>
+        <button type="button" class="travel-tab-btn" data-travel="sea">🌊 바다 여행</button>
+        <button type="button" class="travel-tab-btn" data-travel="overseas">✈️ 해외여행</button>
+      </div>
+
+      <div class="travel-grid" id="travelGrid">
+        <!-- 1. 제주도 바다 여행 -->
+        <div class="travel-card" data-ttype="sea domestic">
+          <div class="travel-img-box">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="제주도 푸른 바다" />
+            <span class="travel-tag">🌊 바다 여행 / 국내</span>
+          </div>
+          <div class="travel-body">
+            <h3 class="travel-title">에메랄드빛 제주 힐링 여행</h3>
+            <ul class="travel-details-list">
+              <li><strong>📍 여행지 :</strong> 제주도 협재 해변 & 올레길</li>
+              <li><strong>📅 여행 기간 :</strong> 2025년 8월 (3박 4일)</li>
+              <li><strong>👨‍👩‍👧‍👦 함께한 가족 :</strong> 온 가족 모두</li>
+            </ul>
+            <div class="travel-story-quote">
+              💬 <strong>여행 이야기 :</strong><br />
+              “새로운 곳에서 함께 웃고, 맛있는 흑돼지와 해산물을 먹고, 노을 지는 해변을 바라보며 또 하나의 소중한 추억을 만들었습니다.”
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. 스위스 알프스 해외여행 -->
+        <div class="travel-card" data-ttype="overseas nature">
+          <div class="travel-img-box">
+            <img src="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=800&q=80" alt="스위스 알프스" />
+            <span class="travel-tag">✈️ 해외여행 / 알프스</span>
+          </div>
+          <div class="travel-body">
+            <h3 class="travel-title">동화 속 세상, 스위스 융프라우</h3>
+            <ul class="travel-details-list">
+              <li><strong>📍 여행지 :</strong> 스위스 인터라켄 & 그린델발트</li>
+              <li><strong>📅 여행 기간 :</strong> 2024년 6월 (6박 8일)</li>
+              <li><strong>👨‍👩‍👧‍👦 함께한 가족 :</strong> 온 가족 함께</li>
+            </ul>
+            <div class="travel-story-quote">
+              💬 <strong>여행 이야기 :</strong><br />
+              “기차를 타고 만년설을 오르던 벅찬 감동! 만년설 앞에서 가족사진을 찍으며 평생 잊지 못할 웅장한 자연을 가슴에 품었습니다.”
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. 경주 역사 힐링 여행 -->
+        <div class="travel-card" data-ttype="domestic">
+          <div class="travel-img-box">
+            <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=800&q=80" alt="경주 한옥 풍경" />
+            <span class="travel-tag">🚗 국내 여행 / 문화</span>
+          </div>
+          <div class="travel-body">
+            <h3 class="travel-title">천년 고도 경주, 달빛 산책</h3>
+            <ul class="travel-details-list">
+              <li><strong>📍 여행지 :</strong> 경북 경주 동궁과 월지, 첨성대</li>
+              <li><strong>📅 여행 기간 :</strong> 2025년 4월 (1박 2일)</li>
+              <li><strong>👨‍👩‍👧‍👦 함께한 가족 :</strong> 온 가족 함께</li>
+            </ul>
+            <div class="travel-story-quote">
+              💬 <strong>여행 이야기 :</strong><br />
+              “달빛 아래 은은하게 빛나는 연못 야경을 걸으며, 옛이야기를 나누고 정갈한 한정식을 함께 즐겼던 낭만적인 밤이었습니다.”
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         [8. 🎂 가족 행사 섹션]
+         기념일, 생일, 졸업식, 명절 등 타임라인 카드
+         ========================================================================== -->
+    <section class="section-spacing container reveal" id="events">
+      <div class="section-header">
+        <span class="section-badge" style="background: rgba(233, 196, 106, 0.15); color: #B38600; border-color: rgba(233, 196, 106, 0.4);">CELEBRATIONS</span>
+        <h2 class="section-title">우리 가족의 특별한 날들</h2>
+        <p class="section-subtitle">
+          서로의 탄생과 성장을 축하하며 따스한 사랑을 전하는 특별한 기념일들입니다.
+        </p>
+      </div>
+
+      <div class="events-grid">
+        <div class="event-card" onclick="openLightbox('https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=1200&q=80', '가족 생일 축하 파티', '서로의 건강을 빌며 케이크 촛불을 끄는 따뜻한 생일')">
+          <div class="event-icon-box">🎂</div>
+          <span class="event-badge">매년 소중한 날</span>
+          <h3 class="event-title">가족 생일 축하의 날</h3>
+          <p class="event-desc">정성 가득한 생일상과 미역국, 가족들이 손수 쓴 편지와 축하 노래로 마음을 전합니다.</p>
+        </div>
+
+        <div class="event-card" onclick="openLightbox('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80', '부모님 결혼기념일', '수십 년의 세월 동안 변함없는 사랑을 지켜오신 두 분의 기념일')">
+          <div class="event-icon-box" style="background: linear-gradient(135deg, #E07A5F, #E76F51);">💍</div>
+          <span class="event-badge">10월의 약속</span>
+          <h3 class="event-title">부모님 결혼기념일</h3>
+          <p class="event-desc">두 분이 함께 걸어오신 아름다운 시간들에 감사하며 꽃다발과 리마인드 여행을 떠납니다.</p>
+        </div>
+
+        <div class="event-card" onclick="openLightbox('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80', '졸업 및 새로운 출발', '새로운 꿈을 향해 나아가는 자녀들의 졸업을 온 가족이 축하했던 날')">
+          <div class="event-icon-box" style="background: linear-gradient(135deg, #2A9D8F, #457B9D);">🎓</div>
+          <span class="event-badge">눈부신 성장의 날</span>
+          <h3 class="event-title">졸업 및 축하 행사</h3>
+          <p class="event-desc">열심히 노력해 결실을 맺은 순간을 축하하며, 새로운 시작을 온 가족이 힘차게 응원합니다.</p>
+        </div>
+
+        <div class="event-card" onclick="openLightbox('https://images.unsplash.com/photo-1512474932049-78ac69eed10c?auto=format&fit=crop&w=1200&q=80', '설날과 추석 명절', '정성껏 차린 차례상과 송편, 만두를 빚으며 정을 나누는 시간')">
+          <div class="event-icon-box" style="background: linear-gradient(135deg, #F4A261, #E9C46A);">🎍</div>
+          <span class="event-badge">설날 & 추석</span>
+          <h3 class="event-title">민족 대명절 가족 모임</h3>
+          <p class="event-desc">친척들과 한자리에 모여 덕담을 나누고, 윷놀이와 맛있는 명절 음식을 푸짐하게 나눕니다.</p>
+        </div>
+
+        <div class="event-card" onclick="openLightbox('https://images.unsplash.com/photo-1513297887119-d46091b24bfa?auto=format&fit=crop&w=1200&q=80', '크리스마스 & 연말 파티', '반짝이는 트리 아래에서 서로에게 선물을 주고받으며 보낸 연말')">
+          <div class="event-icon-box" style="background: linear-gradient(135deg, #E76F51, #D62828);">🎄</div>
+          <span class="event-badge">12월의 설렘</span>
+          <h3 class="event-title">크리스마스 & 연말 송년회</h3>
+          <p class="event-desc">트리 조명 아래서 한 해를 돌아보며 서로에게 고마운 마음을 전하고 새해의 소망을 나눕니다.</p>
+        </div>
+
+        <div class="event-card" onclick="openLightbox('https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1200&q=80', '가족 사진 촬영의 날', '매년 다 함께 스튜디오에서 정갈하게 남기는 우리 가족의 모습')">
+          <div class="event-icon-box" style="background: linear-gradient(135deg, #6D597A, #355070);">📸</div>
+          <span class="event-badge">매년 기록</span>
+          <h3 class="event-title">가족사진 리뉴얼 데이</h3>
+          <p class="event-desc">세월의 흐름 속에 더욱 아름다워지는 우리 가족의 모습을 사진 액자에 곱게 담아둡니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         [9. 📅 우리 가족 일정 & D-DAY 섹션]
+         다가오는 일정 캘린더 리스트 및 인터랙티브 일정 추가
+         ========================================================================== -->
+    <section class="section-spacing container reveal" id="schedule">
+      <div class="section-header">
+        <span class="section-badge">FAMILY CALENDAR</span>
+        <h2 class="section-title">우리 가족 일정</h2>
+        <p class="section-subtitle">
+          함께할 약속을 미리 확인하고 설레는 마음으로 기다리는 공간입니다.
+        </p>
+      </div>
+
+      <div class="schedule-container-grid">
+        <!-- 좌측: 이번 달 일정 목록 -->
+        <div class="schedule-card-box">
+          <div class="schedule-box-header">
+            <h3 class="schedule-box-title">📅 다가오는 가족 일정</h3>
+            <span style="font-size: 0.9rem; color: var(--primary); font-weight: 700;">실시간 업데이트</span>
+          </div>
+
+          <div class="schedule-list" id="scheduleList">
+            <!-- 1. 등산 -->
+            <div class="schedule-item">
+              <div class="schedule-date-badge">
+                <span class="month">9월</span>
+                <span class="day">15</span>
+              </div>
+              <div class="schedule-info">
+                <h4 class="schedule-event-name">🥾 가족과 함께하는 가을 산행</h4>
+                <p class="schedule-event-memo">계룡산 관음봉 코스 | 오전 8시 출발, 도시락 준비</p>
+              </div>
+            </div>
+
+            <!-- 2. 생일 -->
+            <div class="schedule-item" style="border-left-color: var(--accent-amber);">
+              <div class="schedule-date-badge">
+                <span class="month" style="color: var(--accent-amber);">9월</span>
+                <span class="day">22</span>
+              </div>
+              <div class="schedule-info">
+                <h4 class="schedule-event-name">🎂 어머니 생신 축하 가족 만찬</h4>
+                <p class="schedule-event-memo">저녁 6시 30분 예약 | 가족 모두 참석 & 선물 전달</p>
+              </div>
+            </div>
+
+            <!-- 3. 여행 -->
+            <div class="schedule-item" style="border-left-color: var(--accent-blue);">
+              <div class="schedule-date-badge">
+                <span class="month" style="color: var(--accent-blue);">10월</span>
+                <span class="day">03</span>
+              </div>
+              <div class="schedule-info">
+                <h4 class="schedule-event-name">🚗 설악산 가을 단풍 여행 출발</h4>
+                <p class="schedule-event-memo">속초 2박 3일 힐링 로드트립 | 카메라 완충 필수!</p>
+              </div>
+            </div>
+
+            <!-- 4. 식사 -->
+            <div class="schedule-item" style="border-left-color: var(--accent-green);">
+              <div class="schedule-date-badge">
+                <span class="month" style="color: var(--accent-green);">10월</span>
+                <span class="day">18</span>
+              </div>
+              <div class="schedule-info">
+                <h4 class="schedule-event-name">🍽️ 주말 홈파티 & 바베큐</h4>
+                <p class="schedule-event-memo">정원 숯불 바베큐 & 도란도란 영화 감상</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 우측: D-Day 위젯 & 일정 간편 추가 -->
+        <div>
+          <div class="dday-box">
+            <span class="dday-tag">NEXT FAMILY TRIP 🚗</span>
+            <h3 class="dday-title">가을 단풍 가족 여행까지</h3>
+            <div class="dday-counter" id="ddayCount">D-15</div>
+            <p class="dday-desc">2026년 10월 3일, 푸른 바다와 고운 단풍이 우리를 기다립니다!</p>
+          </div>
+
+          <!-- 브라우저에서 바로 새 일정을 추가할 수 있는 미니 폼 -->
+          <div class="add-schedule-box">
+            <h4>✏️ 새 가족 일정 등록하기</h4>
+            <form id="addScheduleForm" onsubmit="handleAddSchedule(event)">
+              <div class="schedule-form-row">
+                <input type="text" id="schedMonth" class="schedule-input" style="max-width: 90px;" placeholder="월 (예: 11월)" required />
+                <input type="text" id="schedDay" class="schedule-input" style="max-width: 80px;" placeholder="일 (예: 10)" required />
+                <select id="schedIcon" class="schedule-input" style="max-width: 120px;">
+                  <option value="🥾">🥾 등산</option>
+                  <option value="🎂">🎂 생일</option>
+                  <option value="🍽️">🍽️ 식사</option>
+                  <option value="🚗">🚗 여행</option>
+                  <option value="🎉">🎉 모임</option>
+                </select>
+              </div>
+              <input type="text" id="schedTitle" class="schedule-input" style="margin-bottom: 10px;" placeholder="일정 이름 (예: 주말 영화 관람)" required />
+              <input type="text" id="schedMemo" class="schedule-input" style="margin-bottom: 12px;" placeholder="메모 (예: 오후 2시 집 앞 영화관)" />
+              <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 0.95rem;">
+                + 일정 캘린더에 추가
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         [10. 💌 가족에게 한마디 (포스트잇 방명록)]
+         가족들이 서로에게 사랑과 감사의 메시지를 남기는 인터랙티브 보드
+         ========================================================================== -->
+    <section class="section-spacing message-board-section reveal" id="messages">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">FAMILY LOVE NOTES</span>
+          <h2 class="section-title">가족에게 전하고 싶은 마음을 남겨주세요</h2>
+          <p class="section-subtitle">
+            평소 쑥스러워 하지 못했던 사랑과 감사의 인사를 예쁜 메모지에 남겨보세요.
+          </p>
+        </div>
+
+        <!-- 메시지 작성 폼 -->
+        <div class="message-form-card">
+          <h3 class="message-form-title">💌 사랑의 메모지 남기기</h3>
+          
+          <div class="postit-colors" id="colorPicker">
+            <div class="color-radio color-yellow active" data-color="color-yellow" title="따스한 옐로우"></div>
+            <div class="color-radio color-pink" data-color="color-pink" title="사랑스런 핑크"></div>
+            <div class="color-radio color-green" data-color="color-green" title="상쾌한 민트그린"></div>
+            <div class="color-radio color-blue" data-color="color-blue" title="포근한 스카이블루"></div>
+            <div class="color-radio color-purple" data-color="color-purple" title="은은한 라벤더"></div>
+          </div>
+
+          <form id="messageForm" onsubmit="handlePostMessage(event)">
+            <div class="schedule-form-row">
+              <input type="text" id="msgAuthor" class="schedule-input" placeholder="작성자 이름 / 역할 (예: 아빠, 엄마, 민우)" required />
+              <select id="msgEmoji" class="schedule-input" style="max-width: 110px;">
+                <option value="💖">💖 사랑</option>
+                <option value="😊">😊 미소</option>
+                <option value="🌷">🌷 감사</option>
+                <option value="🌟">🌟 응원</option>
+                <option value="💪">💪 파이팅</option>
+              </select>
+            </div>
+            <textarea id="msgContent" class="schedule-input" rows="3" style="resize: none; margin-bottom: 14px;" placeholder="가족에게 전하고 싶은 따뜻한 한마디를 적어주세요..." required></textarea>
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 1rem;">
+              💌 메모지에 예쁘게 붙이기
+            </button>
+          </form>
+        </div>
+
+        <!-- 포스트잇 메모 그리드 -->
+        <div class="message-grid" id="messageGrid">
+          <!-- 1. 기본 메모 1 -->
+          <div class="postit-card color-pink">
+            <p class="postit-text">💖 “항상 우리 가족을 위해 헌신하고 노력해줘서 고마워요. 당신이 있어 우리집이 늘 따뜻합니다.”</p>
+            <div class="postit-footer">
+              <span class="postit-author">🌸 엄마가 아빠에게</span>
+              <div class="postit-actions">
+                <button type="button" class="postit-like-btn" onclick="likePost(this)">❤️ <span>12</span></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. 기본 메모 2 -->
+          <div class="postit-card color-yellow">
+            <p class="postit-text">😊 “우리 가족 모두 올 한 해도 아프지 않고 늘 건강하고 행복했으면 좋겠습니다. 우리 가족 최고!”</p>
+            <div class="postit-footer">
+              <span class="postit-author">👑 아빠 김동현</span>
+              <div class="postit-actions">
+                <button type="button" class="postit-like-btn" onclick="likePost(this)">❤️ <span>15</span></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. 기본 메모 3 -->
+          <div class="postit-card color-green">
+            <p class="postit-text">🌷 “함께하는 모든 시간이 소중합니다. 주말마다 다 함께 웃으며 밥 먹을 때가 제일 좋아요!”</p>
+            <div class="postit-footer">
+              <span class="postit-author">🌟 첫째 민우</span>
+              <div class="postit-actions">
+                <button type="button" class="postit-like-btn" onclick="likePost(this)">❤️ <span>9</span></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. 기본 메모 4 -->
+          <div class="postit-card color-purple">
+            <p class="postit-text">❤️ “세상에서 가장 다정하고 멋진 우리 가족! 언제나 곁에서 든든하게 응원할게요. 사랑해요!”</p>
+            <div class="postit-footer">
+              <span class="postit-author">💖 막내 서연</span>
+              <div class="postit-actions">
+                <button type="button" class="postit-like-btn" onclick="likePost(this)">❤️ <span>18</span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         [11. 🎞️ 우리 가족 추억 연표 타임라인]
+         1990년부터 2026년까지의 역사와 발자취
+         ========================================================================== -->
+    <section class="section-spacing container reveal" id="timeline">
+      <div class="section-header">
+        <span class="section-badge">FAMILY HISTORY</span>
+        <h2 class="section-title">우리 가족 추억 타임라인</h2>
+        <p class="section-subtitle">
+          세월이 흘러도 변함없는 사랑으로 이어져 온 우리 가족의 소중한 발자취입니다.
+        </p>
+      </div>
+
+      <div class="timeline-wrapper">
+        <!-- 1990년 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="timeline-year">1990년</span>
+            <h3 class="timeline-title">🌱 우리 가족의 시작</h3>
+            <p class="timeline-desc">두 사람의 설레는 만남과 약속. 평생을 함께할 든든한 동반자가 되어 새로운 가정을 이루었습니다.</p>
+            <div class="timeline-img">
+              <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80" alt="1990년 시작" />
+            </div>
+          </div>
+        </div>
+
+        <!-- 2000년 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="timeline-year">2000년</span>
+            <h3 class="timeline-title">👶 새로운 가족의 탄생과 웃음</h3>
+            <p class="timeline-desc">소중한 생명의 탄생과 함께 집 안 가득 울려 퍼진 아기 울음소리. 부모라는 이름으로 첫걸음을 내디뎠습니다.</p>
+            <div class="timeline-img">
+              <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=600&q=80" alt="2000년 자녀 탄생" />
+            </div>
+          </div>
+        </div>
+
+        <!-- 2010년 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="timeline-year">2010년</span>
+            <h3 class="timeline-title">🏕️ 함께한 여행과 수많은 추억</h3>
+            <p class="timeline-desc">주말마다 배낭을 메고 전국의 산과 바다로 캠핑을 떠나며 온 가족이 자연 속에서 행복한 시간을 보냈습니다.</p>
+            <div class="timeline-img">
+              <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=600&q=80" alt="2010년 캠핑과 여행" />
+            </div>
+          </div>
+        </div>
+
+        <!-- 2020년 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="timeline-year">2020년</span>
+            <h3 class="timeline-title">🌟 서로를 응원하며 함께 성장한 날들</h3>
+            <p class="timeline-desc">자녀들의 진학과 새로운 도전 앞에 가족 모두가 든든한 울타리가 되어 서로를 아끼고 격려했습니다.</p>
+            <div class="timeline-img">
+              <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80" alt="2020년 성장" />
+            </div>
+          </div>
+        </div>
+
+        <!-- 2026년 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="timeline-year">2026년 ~</span>
+            <h3 class="timeline-title">🏡 새로운 이야기가 시작됩니다</h3>
+            <p class="timeline-desc">더 깊어진 사랑과 여유로움으로 써 내려가는 우리 가족의 다음 페이지. 오늘도 내일도 행복은 계속됩니다.</p>
+            <div class="timeline-img">
+              <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=600&q=80" alt="2026년 현재" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       [12. 홈페이지 하단 푸터 (FOOTER)]
+       감성적인 문구와 마무리
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-quote-box">
+        <h2 class="footer-main-quote">
+          “가족은 가장 가까운 곳에서 언제나 나를 기다리는 가장 소중한 사람들입니다.”
+        </h2>
+        <p class="footer-sub-quote">
+          우리 가족의 행복한 이야기는 오늘도 계속됩니다. ❤️
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#home">HOME</a>
+        <a href="#family">우리 가족</a>
+        <a href="#story">우리집 이야기</a>
+        <a href="#album">추억 앨범</a>
+        <a href="#hiking">등산 이야기</a>
+        <a href="#travel">여행 이야기</a>
+        <a href="#schedule">가족 일정</a>
+        <a href="#messages">가족에게 한마디</a>
+      </div>
+
+      <p class="footer-copyright">
+        © 2026 우리 가족 이야기 (김동현 님 가족 전용 홈페이지) &nbsp;|&nbsp; Made with Love ❤️
+      </p>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       [라이트박스 모달 (사진 확대 뷰어)]
+       ========================================================================== -->
+  <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true">
+    <button type="button" class="lightbox-close-btn" onclick="closeLightbox()" title="닫기 (ESC)">✕</button>
+    <button type="button" class="lightbox-nav-btn lightbox-prev" onclick="prevLightbox()" title="이전 사진 (←)">‹</button>
+    <button type="button" class="lightbox-nav-btn lightbox-next" onclick="nextLightbox()" title="다음 사진 (→)">›</button>
+
+    <div class="lightbox-content-box">
+      <div class="lightbox-img-wrapper">
+        <img src="" alt="확대된 가족사진" id="lightboxImg" class="lightbox-img" />
+      </div>
+      <div class="lightbox-caption-bar">
+        <div>
+          <h3 class="lightbox-title" id="lightboxTitle"></h3>
+          <p class="lightbox-desc" id="lightboxDesc"></p>
+        </div>
+        <span id="lightboxIndex" style="font-size: 0.85rem; color: var(--primary-light); font-weight: 700;"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       [플로팅 도구 버튼 (맨 위로 스크롤 & 음악 플레이어)]
+       ========================================================================== -->
+  <div class="floating-tools">
+    <button type="button" class="floating-btn" id="scrollTopBtn" title="맨 위로 이동" aria-label="맨 위로">↑</button>
+  </div>
+
+  <!-- ==========================================================================
+       [JavaScript 프론트엔드 로직]
+       1. 네비게이션 & 스크롤 감지
+       2. 캔버스 배경 파티클 애니메이션
+       3. 라이트박스 갤러리 및 키보드 조작
+       4. 앨범 & 여행 카테고리 필터
+       5. 숫자 카운트 애니메이션
+       6. 포스트잇 방명록 (LocalStorage 저장 & 좋아요)
+       7. 일정 캘린더 등록 기능
+       8. 순수 Web Audio API 감성 멜로디 BGM 재생기
+       ========================================================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initNavigation();
+      initHeroCanvas();
+      initScrollReveal();
+      initNumberCounter();
+      initAlbumFilter();
+      initTravelTabs();
+      initThemeToggle();
+      initBgmAudio();
+      loadStoredMessages();
+    });
+
+    /* --------------------------------------------------------------------------
+       1. 네비게이션 & 헤더 스크롤 제어
+       -------------------------------------------------------------------------- */
+    function initNavigation() {
+      const header = document.getElementById('mainHeader');
+      const mobileToggle = document.getElementById('mobileMenuToggle');
+      const mobileDrawer = document.getElementById('mobileDrawer');
+      const mLinks = document.querySelectorAll('.m-link');
+      const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+
+        if (window.scrollY > 400) {
+          scrollTopBtn.style.opacity = '1';
+          scrollTopBtn.style.pointerEvents = 'auto';
+        } else {
+          scrollTopBtn.style.opacity = '0';
+          scrollTopBtn.style.pointerEvents = 'none';
+        }
+      });
+
+      // 모바일 메뉴 토글
+      mobileToggle.addEventListener('click', () => {
+        mobileDrawer.classList.toggle('open');
+      });
+
+      // 모바일 링크 클릭 시 닫기
+      mLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileDrawer.classList.remove('open');
+        });
+      });
+
+      // 맨 위로 이동 버튼
+      scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+    /* --------------------------------------------------------------------------
+       2. 메인 히어로 캔버스 은은한 햇살 & 꽃잎 파티클 효과
+       -------------------------------------------------------------------------- */
+    function initHeroCanvas() {
+      const canvas = document.getElementById('heroCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let width = (canvas.width = window.innerWidth);
+      let height = (canvas.height = window.innerHeight);
+
+      window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      });
+
+      // 파티클 생성
+      const particles = [];
+      const particleCount = 45;
+
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          radius: Math.random() * 4 + 1.5,
+          speedX: Math.random() * 0.8 - 0.4,
+          speedY: Math.random() * 0.9 + 0.3,
+          opacity: Math.random() * 0.6 + 0.2,
+          color: Math.random() > 0.5 ? '244, 162, 97' : '233, 196, 106'
+        });
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        particles.forEach(p => {
+          p.x += p.speedX;
+          p.y += p.speedY;
+
+          if (p.y > height) {
+            p.y = -10;
+            p.x = Math.random() * width;
+          }
+          if (p.x > width) p.x = 0;
+          if (p.x < 0) p.x = width;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${p.color}, ${p.opacity})`;
+          ctx.fill();
+        });
+
+        requestAnimationFrame(animate);
+      }
+      animate();
+    }
+
+    /* --------------------------------------------------------------------------
+       3. 스크롤 등장 애니메이션 (Intersection Observer)
+       -------------------------------------------------------------------------- */
+    function initScrollReveal() {
+      const reveals = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      }, { threshold: 0.12 });
+
+      reveals.forEach(el => observer.observe(el));
+    }
+
+    /* --------------------------------------------------------------------------
+       4. 우리집 이야기 숫자 카운트 애니메이션
+       -------------------------------------------------------------------------- */
+    function initNumberCounter() {
+      const statNumbers = document.querySelectorAll('.stat-number');
+      let counted = false;
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !counted) {
+            counted = true;
+            statNumbers.forEach(stat => {
+              const target = +stat.getAttribute('data-target');
+              const duration = 1800;
+              const step = Math.ceil(target / (duration / 25));
+              let current = 0;
+
+              const timer = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                  stat.textContent = target.toLocaleString() + '+';
+                  clearInterval(timer);
+                } else {
+                  stat.textContent = current.toLocaleString();
+                }
+              }, 25);
+            });
+          }
+        });
+      }, { threshold: 0.3 });
+
+      const storySection = document.getElementById('story');
+      if (storySection) observer.observe(storySection);
+    }
+
+    /* --------------------------------------------------------------------------
+       5. 📸 추억 앨범 카테고리 필터링
+       -------------------------------------------------------------------------- */
+    function initAlbumFilter() {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const cards = document.querySelectorAll('.album-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const category = btn.getAttribute('data-filter');
+
+          cards.forEach(card => {
+            if (category === 'all' || card.getAttribute('data-category') === category) {
+              card.style.display = 'block';
+              card.style.animation = 'fadeInHero 0.5s ease';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    }
+
+    /* --------------------------------------------------------------------------
+       6. ✈️ 여행 카테고리 탭 제어
+       -------------------------------------------------------------------------- */
+    function initTravelTabs() {
+      const tabBtns = document.querySelectorAll('.travel-tab-btn');
+      const travelCards = document.querySelectorAll('.travel-card');
+
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tabBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const filter = btn.getAttribute('data-travel');
+
+          travelCards.forEach(card => {
+            const ttypes = card.getAttribute('data-ttype') || '';
+            if (filter === 'all' || ttypes.includes(filter)) {
+              card.style.display = 'flex';
+              card.style.animation = 'fadeInHero 0.5s ease';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    }
+
+    /* --------------------------------------------------------------------------
+       7. 🖼️ 라이트박스 갤러리 모달 & 키보드 탐색
+       -------------------------------------------------------------------------- */
+    let lightboxGalleryItems = [];
+    let currentLightboxIdx = 0;
+
+    function buildLightboxGallery() {
+      const albumCards = Array.from(document.querySelectorAll('.album-card, .mosaic-item, .event-card'));
+      lightboxGalleryItems = [];
+
+      albumCards.forEach(card => {
+        const onclickAttr = card.getAttribute('onclick');
+        if (onclickAttr && onclickAttr.includes('openLightbox')) {
+          const match = onclickAttr.match(/openLightbox\('([^']+)',\s*'([^']+)',\s*'([^']+)'\)/);
+          if (match) {
+            lightboxGalleryItems.push({
+              src: match[1],
+              title: match[2],
+              desc: match[3]
+            });
+          }
+        }
+      });
+    }
+
+    function openLightbox(src, title, desc) {
+      buildLightboxGallery();
+      currentLightboxIdx = lightboxGalleryItems.findIndex(item => item.src === src);
+      if (currentLightboxIdx === -1) {
+        lightboxGalleryItems.push({ src, title, desc });
+        currentLightboxIdx = lightboxGalleryItems.length - 1;
+      }
+      renderLightbox();
+      document.getElementById('lightboxModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightboxModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function renderLightbox() {
+      const item = lightboxGalleryItems[currentLightboxIdx];
+      if (!item) return;
+      document.getElementById('lightboxImg').src = item.src;
+      document.getElementById('lightboxTitle').textContent = item.title;
+      document.getElementById('lightboxDesc').textContent = item.desc;
+      document.getElementById('lightboxIndex').textContent = `${currentLightboxIdx + 1} / ${lightboxGalleryItems.length}`;
+    }
+
+    function prevLightbox() {
+      if (lightboxGalleryItems.length === 0) return;
+      currentLightboxIdx = (currentLightboxIdx - 1 + lightboxGalleryItems.length) % lightboxGalleryItems.length;
+      renderLightbox();
+    }
+
+    function nextLightbox() {
+      if (lightboxGalleryItems.length === 0) return;
+      currentLightboxIdx = (currentLightboxIdx + 1) % lightboxGalleryItems.length;
+      renderLightbox();
+    }
+
+    // ESC 및 좌우 방향키로 사진 넘기기 지원
+    window.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('lightboxModal');
+      if (modal && modal.classList.contains('active')) {
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') prevLightbox();
+        if (e.key === 'ArrowRight') nextLightbox();
+      }
+    });
+
+    // 배경 클릭 시 닫기
+    document.getElementById('lightboxModal').addEventListener('click', (e) => {
+      if (e.target.id === 'lightboxModal') {
+        closeLightbox();
+      }
+    });
+
+    /* --------------------------------------------------------------------------
+       8. 💌 가족에게 한마디 (포스트잇 방명록) 로직
+       -------------------------------------------------------------------------- */
+    let selectedColor = 'color-yellow';
+
+    // 색상 선택 라디오 버튼
+    const colorRadios = document.querySelectorAll('.color-radio');
+    colorRadios.forEach(radio => {
+      radio.addEventListener('click', () => {
+        colorRadios.forEach(r => r.classList.remove('active'));
+        radio.classList.add('active');
+        selectedColor = radio.getAttribute('data-color');
+      });
+    });
+
+    function handlePostMessage(e) {
+      e.preventDefault();
+      const author = document.getElementById('msgAuthor').value.trim();
+      const emoji = document.getElementById('msgEmoji').value;
+      const content = document.getElementById('msgContent').value.trim();
+
+      if (!author || !content) return;
+
+      const newMsg = {
+        id: Date.now(),
+        author,
+        emoji,
+        content,
+        color: selectedColor,
+        likes: 1
+      };
+
+      // 화면에 추가
+      prependMessageCard(newMsg);
+
+      // LocalStorage 저장
+      saveMessageToStorage(newMsg);
+
+      // 폼 초기화
+      document.getElementById('msgContent').value = '';
+      alert('❤️ 가족에게 전하는 소중한 마음이 메모지에 예쁘게 붙었습니다!');
+    }
+
+    function prependMessageCard(msg) {
+      const grid = document.getElementById('messageGrid');
+      const card = document.createElement('div');
+      card.className = `postit-card ${msg.color}`;
+      card.innerHTML = `
+        <p class="postit-text">${msg.emoji} “${escapeHtml(msg.content)}”</p>
+        <div class="postit-footer">
+          <span class="postit-author">${msg.emoji} ${escapeHtml(msg.author)}</span>
+          <div class="postit-actions">
+            <button type="button" class="postit-like-btn" onclick="likePost(this)">❤️ <span>${msg.likes}</span></button>
+          </div>
+        </div>
+      `;
+      grid.prepend(card);
+    }
+
+    function likePost(btn) {
+      const span = btn.querySelector('span');
+      if (span) {
+        let count = parseInt(span.textContent, 10) || 0;
+        span.textContent = count + 1;
+        btn.style.transform = 'scale(1.35)';
+        setTimeout(() => btn.style.transform = 'scale(1)', 200);
+      }
+    }
+
+    function saveMessageToStorage(msg) {
+      try {
+        const stored = JSON.parse(localStorage.getItem('family_notes') || '[]');
+        stored.unshift(msg);
+        localStorage.setItem('family_notes', JSON.stringify(stored));
+      } catch (err) {
+        console.warn('LocalStorage access issue:', err);
+      }
+    }
+
+    function loadStoredMessages() {
+      try {
+        const stored = JSON.parse(localStorage.getItem('family_notes') || '[]');
+        stored.forEach(msg => prependMessageCard(msg));
+      } catch (err) {
+        console.warn('Cannot load stored notes:', err);
+      }
+    }
+
+    function escapeHtml(str) {
+      return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+    }
+
+    /* --------------------------------------------------------------------------
+       9. 📅 새 일정 간편 추가 로직
+       -------------------------------------------------------------------------- */
+    function handleAddSchedule(e) {
+      e.preventDefault();
+      const month = document.getElementById('schedMonth').value.trim();
+      const day = document.getElementById('schedDay').value.trim();
+      const icon = document.getElementById('schedIcon').value;
+      const title = document.getElementById('schedTitle').value.trim();
+      const memo = document.getElementById('schedMemo').value.trim();
+
+      if (!month || !day || !title) return;
+
+      const scheduleList = document.getElementById('scheduleList');
+      const item = document.createElement('div');
+      item.className = 'schedule-item';
+      item.innerHTML = `
+        <div class="schedule-date-badge">
+          <span class="month">${escapeHtml(month)}</span>
+          <span class="day">${escapeHtml(day)}</span>
+        </div>
+        <div class="schedule-info">
+          <h4 class="schedule-event-name">${icon} ${escapeHtml(title)}</h4>
+          <p class="schedule-event-memo">${escapeHtml(memo || '가족과 함께하는 소중한 시간')}</p>
+        </div>
+      `;
+      scheduleList.appendChild(item);
+
+      document.getElementById('addScheduleForm').reset();
+      alert('📅 새 일정이 가족 캘린더에 성공적으로 등록되었습니다!');
+    }
+
+    /* --------------------------------------------------------------------------
+       10. 🌙 다크 모드 토글
+       -------------------------------------------------------------------------- */
+    function initThemeToggle() {
+      const toggleBtn = document.getElementById('themeToggleBtn');
+      toggleBtn.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        const isDark = document.body.classList.contains('dark-mode');
+        toggleBtn.textContent = isDark ? '☀️' : '🌙';
+      });
+    }
+
+    /* --------------------------------------------------------------------------
+       11. 🎵 순수 Web Audio API 감성 멜로디 BGM 재생기 (외부 파일 없이 동작)
+       -------------------------------------------------------------------------- */
+    let audioCtx = null;
+    let isPlayingBgm = false;
+    let bgmInterval = null;
+
+    function initBgmAudio() {
+      const bgmBtn = document.getElementById('bgmToggleBtn');
+      bgmBtn.addEventListener('click', () => {
+        if (!isPlayingBgm) {
+          startPeacefulBgm();
+          bgmBtn.textContent = '⏸️';
+          bgmBtn.title = '배경음악 멈춤';
+          isPlayingBgm = true;
+        } else {
+          stopPeacefulBgm();
+          bgmBtn.textContent = '🎵';
+          bgmBtn.title = '감성 배경음악 켜기';
+          isPlayingBgm = false;
+        }
+      });
+    }
+
+    function startPeacefulBgm() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+
+      // 따뜻한 오르골/피아노 아르페지오 음계 (C Major Pentatonic)
+      const scale = [261.63, 293.66, 329.63, 392.00, 440.00, 523.25, 587.33, 659.25];
+      let step = 0;
+
+      function playChime(freq, when, duration = 1.4) {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, when);
+
+        gain.gain.setValueAtTime(0.0001, when);
+        gain.gain.linearRampToValueAtTime(0.04, when + 0.08);
+        gain.gain.exponentialRampToValueAtTime(0.0001, when + duration);
+
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        osc.start(when);
+        osc.stop(when + duration);
+      }
+
+      bgmInterval = setInterval(() => {
+        const now = audioCtx.currentTime;
+        const noteIdx = [0, 2, 4, 7, 5, 3, 2, 4][step % 8];
+        playChime(scale[noteIdx], now, 2.0);
+
+        if (step % 2 === 0) {
+          playChime(scale[noteIdx] / 2, now + 0.15, 2.5); // 따뜻한 베이스음
+        }
+
+        step++;
+      }, 700);
+    }
+
+    function stopPeacefulBgm() {
+      if (bgmInterval) {
+        clearInterval(bgmInterval);
+        bgmInterval = null;
+      }
+    }
+  </script>
+</body>
+</html>
